@@ -258,6 +258,298 @@ input:focus {
   color: #000;
 }
 
+/* HomePage */
+.home-heading{
+  margin: 20px 75px 0px 65px; 
+  padding: 0px 32px;
+}
+.head-list{
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+.head-item button{
+  background: none;
+  border: none;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 510;
+}
+.head-item button:hover{
+  color: teal;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+.home-content{
+  margin: 20px 75px 0px 65px; 
+  padding: 0px 32px;
+}
+.stock-title{
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 12px;
+}
+.s-indices{
+  display: flex;
+  border: 1px solid #b8b8b8;
+  width: 240px;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.stock-content{
+  display: flex;
+  gap: 10px;
+}
+.in-item{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  margin-bottom: 6px;
+}
+.dot{
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+.mt-head{
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 20px;
+}
+.c-trade{
+  display: flex;
+  gap: 15px;
+}
+.c-trade-border{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #b8b8b8;
+  border-radius: 10px;
+  width: 188px;
+  max-height: 172px;
+  padding: 16px;
+}
+.c-trade-border:hover{
+  padding: 15px;
+}
+.c-trade-title{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.c-trade-price{
+  font-size: 16px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.c-trade-per{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.tg-head{
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 20px;
+}
+.tg-cat{
+  display: flex;
+  gap: 15px;
+}
+.tg-cat div{
+  border: 1px solid #b8b8b8;
+  padding: 5px;
+  border-radius: 25px;
+}
+.tg-cat button{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 435;
+  border: none;
+  background: none;
+}
+.tg-cat div:hover,.tg-cat div button:hover{
+  color: #fff;
+  background-color: rgb(38, 162, 162);
+}
+
+.large-trade{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.large-trade-border{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #b8b8b8;
+  border-radius: 10px;
+  width: 188px;
+  max-height: 172px;
+  padding: 16px;
+}
+.large-trade-title{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.large-trade-price{
+  font-size: 16px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.large-trade-per{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+
+/*  */
+.sec-head{
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 20px;
+}
+.top-sectors{
+  display: flex;
+  gap: 50px;
+}
+.left div, .right div{
+  width: 250px;
+  font-size: 14px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  border: 1px solid #b8b8b8;
+  padding: 15px;
+  border-radius: 10px;margin-bottom: 10px;
+}
+.left div span, .right div span{
+  float: inline-end;
+}
+.left div:hover, .right div:hover{
+  font-size: 15px;
+  box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+  -webkit-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+  -moz-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+}
+.fo-head{
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 20px;
+}
+table,table tr{
+  width: 100%;
+  border: 1px solid #b8b8b8;
+  border-collapse: collapse;
+}
+th{
+  text-align: start;
+}
+table td, th{
+  padding: 20px;
+}
+td{
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+.mf-collection{
+  display: flex;
+  gap: 40px;
+}
+.mf-collection div{
+  width: 250px;
+  font-size: 14px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  padding: 15px;
+  border: 1px solid #b8b8b8;
+  border-radius: 10px;
+}
+.mf-collection div:hover{
+  font-size: 15px;
+  box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+  -webkit-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+  -moz-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
+}
+
+.fc-head{
+  margin-top: 60px;
+  font-size: 18px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 20px;
+}
+.fc-cat{
+  display: flex;
+  gap: 15px;
+}
+.fc-cat div{
+  border: 1px solid #b8b8b8;
+  padding: 5px;
+  border-radius: 25px;
+}
+.fc-cat button{
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 435;
+  border: none;
+  background: none;
+}
+.fc-cat div:hover,.fc-cat div button:hover{
+  color: #fff;
+  background-color: rgb(38, 162, 162);
+}
+table,table tr{
+  width: 100%;
+  border: 1px solid #b8b8b8;
+  border-collapse: collapse;
+}
+th{
+  text-align: start;
+}
+table td, th{
+  padding: 20px;
+}
+td{
+  font-size: 14px;
+  line-height: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Header */
 .navbar{
   width: 100%;
@@ -301,6 +593,9 @@ input:focus {
   border: none;
   background: none;
 }
+.item:hover{
+  color: teal;
+}
 .s-bar{
   display: flex;
   border: 1px solid rgb(203, 203, 203);
@@ -322,6 +617,7 @@ input:focus {
   border-radius: 10px ;
 }
 .nav-right{
+  position: relative;
   display: flex;
 }
 .i-svg{
@@ -346,16 +642,56 @@ input:focus {
   object-fit: cover;
 }
 .c-btn{
-  display: flex;
   background: none;
   border: none;
+}
+.ddown-btn{
+  display: flex;
   gap: 5px;
-  margin-top: 5px;
+  border: none;
+  background: none;
+  margin-bottom: 10px;
 }
-.c-btn svg{
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style={{width:"22px",height:"22px"}}><path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-224c0-35.3-28.7-64-64-64L80 128c-8.8 0-16-7.2-16-16s7.2-16 16-16l368 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L64 32zM416 272a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" style={{width:"22px",height:"22px"}}><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+.dropdown {
+  display: inline-block;
 }
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 6%;
+  background: white;
+  min-width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+  pointer-events: none;
+  border-radius: 0.5rem;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-content a {
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  text-align: start;
+  color: #374151;
+  text-decoration: none;
+  display: block;
+  padding: 20px;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.dropdown-content a:hover {
+  color: teal;
+  background: #f3f4f6;
+}
+
 
 
 
