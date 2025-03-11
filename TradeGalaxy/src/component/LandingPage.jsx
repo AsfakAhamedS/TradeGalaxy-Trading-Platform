@@ -60,21 +60,21 @@ function LandingPage(){
                         </div>
                         <div className='s-list'>
                             <div className='s-item'><span className='item'>Stocks & Intraday</span><span className='item-icon'><SlArrowRight /></span></div>
-                            <div className='s-item'><span className='item'>Mutual funds & SIPs</span><span className='item-icon'><SlArrowRight /></span></div>
-                            <div className='s-item'><span className='item'>Futures & Options</span><span className='item-icon'><SlArrowRight /></span></div>
+                            <div className='s-item'><span className='item'>Currency</span><span className='item-icon'><SlArrowRight /></span></div>
+                            <div className='s-item'><span className='item'>Commodities</span><span className='item-icon'><SlArrowRight /></span></div>
                         </div>
                     </div>
                 </div>
                 <div className='market-sec'>
                     <div style={{flex:"1"}}>
                         <div className="im-head">
-                            <span>Trade Smarter,<br />Invest Better.</span>
+                            <span>Trade Crypto,<br />Maximize Gains.</span> 
                         </div>
                         <div className='sub-head'>
-                            Go long or short, play it safe or take the leap—invest on your terms and build your future.
+                        Go long or short, ride the waves or HODL strong—trade digital assets on your terms and shape your financial future. 
                         </div>
                         <div className='s-list'>
-                            <div className='s-item'><span className='item'>Stocks & Intraday</span><span className='item-icon'><SlArrowRight /></span></div>
+                            <div className='s-item'><span className='item'>Digital Assets</span><span className='item-icon'><SlArrowRight /></span></div>
                             <div className='s-item'><span className='item'>Mutual funds & SIPs</span><span className='item-icon'><SlArrowRight /></span></div>
                             <div className='s-item'><span className='item'>Futures & Options</span><span className='item-icon'><SlArrowRight /></span></div>
                         </div>
@@ -85,11 +85,17 @@ function LandingPage(){
                 </div>
                 <div className="land-heading">
                     <h1 className='l-head'>
-                        <span>All things finance,<br /> all in one place.</span>
+                        <span>Trade with confidence,<br /> invest with vision.</span> 
                     </h1>
-                    <h2 className='l-sub-head'>Empowering a growing India</h2>
+                    <h2 className='l-sub-head'>Your journey to financial success starts here. </h2>
                     <div className="l-btn">
                         <button onClick={() => setModalopen(true)}>Get Started</button>
+                    </div>
+                    <div className='quote'>
+                        <div>
+                            "If you don’t find a way to <span style={{color:"#00B386"}}>make money</span> while you sleep, <br />you will work until you <span style={{color:"#EB5B3C"}}>die</span>."
+                        </div>
+                        <div className='author'>— Warren Buffett</div>
                     </div>
                 </div>
                 <div>

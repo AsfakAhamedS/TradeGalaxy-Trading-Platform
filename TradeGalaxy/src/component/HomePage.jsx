@@ -5,33 +5,38 @@ import Footer from './Footer'
 const indice = [
     {
         "id":1,
-        "indices": "NIFTY",
-        "opening": "23,400.45",
-        "percentage": "0.40 (90%)"
+        "indices": "NIFTY 50",
+        "opening": "22,497.90",
+        "percentage": "3.60 (0.17%)",
+        "trend":false
     },
     {
         "id":2,
         "indices": "BANKNIFTY",
-        "opening": "23,400.45",
-        "percentage": "0.40 (90%)"
+        "opening": "47,889.25",
+        "percentage": "37.11 (0.11%)",
+        "trend":true
     },
     {
         "id":3, 
         "indices": "SENSEX",
-        "opening": "23,400.45",
-        "percentage": "0.40 (90%)"
+        "opening": "74,117.02",
+        "percentage": "1.05 (0.00%)",
+        "trend":false
     },
     {
         "id":4,
         "indices": "FINNIFTY",
         "opening": "23,400.45",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":true
     },
     {
         "id":6,
         "indices": "MIDCAP NIFTY",
-        "opening": "23,400.45",
-        "percentage": "0.40 (90%)"
+        "opening": "11,011.01",
+        "percentage": "51.60 (0.47%)",
+        "trend":false
     }
 ]
 
@@ -41,28 +46,32 @@ const mtrade = [
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":true
     },
     {
         "id":2,
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":false
     },
     {
         "id":3,
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":false
     },
     {
         "id":4,
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":true
     },
     ,
     {
@@ -70,7 +79,8 @@ const mtrade = [
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":false
     }
     ,
     {
@@ -78,7 +88,8 @@ const mtrade = [
         "logo":"../../public/stocksicon/Adani.webp",
         "companyname":"Adani Groups",
         "price":"₹500",
-        "percentage": "0.40 (90%)"
+        "percentage": "0.40 (90%)",
+        "trend":true
     }
 ]
 const topgainerdata = [
@@ -647,7 +658,7 @@ function HomePage(){
                                         <div className="s-indices" key={item.id} onMouseEnter={() => {setShown(item.id)}} onMouseLeave={() => {setShown(null)}}>
                                             <div>
                                                 <div className='in-item'>{item.indices}</div>
-                                                <div className='in-item'>{item.opening} <span style={{color:"#00B386",marginLeft:"10px"}}>{item.percentage}</span></div>
+                                                <div className='in-item'>{item.opening} <span style={{color: `${item.trend ? "#00B386" : "#EB5B3C"}`,marginLeft:"5px"}}>{item.percentage}</span></div>
                                             </div>
                                             { shown === item.id && (
                                                 <div className='dot'>
@@ -673,7 +684,7 @@ function HomePage(){
                                             </div>
                                             <div className="c-trade-title">{item.companyname}</div>
                                             <div className="c-trade-price">{item.price}</div>
-                                            <div className="c-trade-per" style={{color:"#00B386"}}>{item.percentage}</div>
+                                            <div className="c-trade-per" style={{color:`${item.trend ? "#00B386" : "#EB5B3C"}`}}>{item.percentage}</div>
                                         </div>
                                     ))}
                                 </div>

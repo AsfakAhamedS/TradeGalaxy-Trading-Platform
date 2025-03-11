@@ -129,6 +129,19 @@
   -webkit-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
   -moz-box-shadow: -3px 5px 11px -4px rgba(0,0,0,0.52);
 }
+.quote{
+  margin-top: 100px;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.5rem;
+  font-weight: 435;
+}
+.author{
+  font-style: italic;
+  line-height: 1.5rem;
+  margin-top: 10px;
+  margin-left: 260px;
+}
 
 /* LoginPage */
 .login-container{
@@ -148,6 +161,7 @@
   padding: 20px;
   border-radius: 10px;
   width: 450px;
+  height: 460px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 .close-btn svg{
@@ -198,7 +212,7 @@ input:focus {
   color: #000;
   text-decoration: none;
 }
-.forget a:hover, .create button:hover{
+.forget a:hover, .create button:hover, .already-login button:hover{
   color: rgb(0, 92, 92);
   text-underline-offset: 2px;
   text-decoration: underline;
@@ -256,6 +270,17 @@ input:focus {
   border: none;
   background: none;
   color: #000;
+}
+.error{
+  font-size: small;
+  color: #E20606;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.c-error{
+  font-size: small;
+  color: #E20606;
+  margin-top: 10px;
 }
 
 /* HomePage */
@@ -530,6 +555,66 @@ table td, th{
 td{
   font-size: 14px;
   line-height: 1.5rem;
+}
+
+/* Dashboard */
+.db-container{
+  display: flex;
+  margin: 20px 75px 0px 65px; 
+  padding: 0px 32px;
+}
+.db-right{
+  flex: 40%;
+  margin-top: 20px;
+}
+.db-left{
+  flex: 60%;
+  margin-top: 20px;
+}
+.port-amt{
+  display: flex;
+  padding: 20px;
+  border: 1px solid #b8b8b8;
+  border-bottom: none;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  width: 90%;
+  margin-top: 10px;
+}
+.c-value, .d-value{
+  flex: 50%;
+}
+.current-amt{
+  font-size: 28px;
+  line-height: 1.5rem;
+  font-weight: 535;
+}
+.db-content{
+  font-size: 14px;
+  line-height: 1.5rem;
+  font-weight: 435;
+}
+.db-card{
+  position: sticky;
+  top: 10px;
+  border: 1px solid #b8b8b8;
+  width: 90%;
+  height: 400px;
+  border-radius: 30px;
+  margin-top: 25px;
+  margin-left: 30px;
+}
+
+
+
+
+.db-heading{
+  font-size: 18px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.db-left .db-table{
+  width: 90%;
 }
 
 
