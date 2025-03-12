@@ -1,0 +1,273 @@
+[
+    {
+        "market_data": {
+            "indian_indices": [
+                {
+                    "id":1,
+                    "indices": "NIFTY 50",
+                    "opening": "22,497.90",
+                    "percentage": "3.60 (0.17%)",
+                    "trend":false
+                },
+                {
+                    "id":2,
+                    "indices": "BANKNIFTY",
+                    "opening": "47,889.25",
+                    "percentage": "37.11 (0.11%)",
+                    "trend":true
+                },
+                {
+                    "id":3, 
+                    "indices": "SENSEX",
+                    "opening": "74,117.02",
+                    "percentage": "1.05 (0.00%)",
+                    "trend":false
+                },
+                {
+                    "id":4,
+                    "indices": "FINNIFTY",
+                    "opening": "23,400.45",
+                    "percentage": "0.40 (90%)",
+                    "trend":true
+                },
+                {
+                    "id":6,
+                    "indices": "MIDCAP NIFTY",
+                    "opening": "11,011.01",
+                    "percentage": "51.60 (0.47%)",
+                    "trend":false
+                }
+            ],
+            "indian_stocks":[
+                {
+                    "id": 1,
+                    "logo": "../../public/stocksicon/RelianceInds.webp",
+                    "companyname": "Reliance Industries",
+                    "price": "₹2,650",
+                    "percentage": "1.10 (0.25%)",
+                    "trend": true
+                },
+                {
+                    "id": 2,
+                    "logo": "../../public/stocksicon/TataMotors.webp",
+                    "companyname": "Tata Motors",
+                    "price": "₹725",
+                    "percentage": "-0.80 (-0.18%)",
+                    "trend": false
+                },
+                {
+                    "id": 3,
+                    "logo": "../../public/stocksicon/HDFCBank.webp",
+                    "companyname": "HDFC Bank",
+                    "price": "₹1,650",
+                    "percentage": "2.30 (0.65%)",
+                    "trend": true
+                },
+                {
+                    "id": 4,
+                    "logo": "../../public/stocksicon/Infosys.webp",
+                    "companyname": "Infosys Ltd",
+                    "price": "₹1,525",
+                    "percentage": "-12.80 (-0.83%)",
+                    "trend": false
+                },
+                {
+                    "id": 5,
+                    "logo": "../../public/stocksicon/ZomatoLtd.webp",
+                    "companyname": "Zomato Ltd",
+                    "price": "₹145",
+                    "percentage": "2.00 (1.40%)",
+                    "trend": true
+                },
+                {
+                    "id": 6,
+                    "logo": "../../public/stocksicon/StBkofIndia.webp",
+                    "companyname": "State Bank of India",
+                    "price": "₹605",
+                    "percentage": "-5.25 (-0.86%)",
+                    "trend": false
+                },
+                {
+                    "id": 1,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/Reliance.webp",
+                    "companyname": "Reliance Industries",
+                    "price": "₹2,620",
+                    "percentage": "1.25 (0.48%)",
+                    "marketcap": "₹17,20,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 2,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/TCS.webp",
+                    "companyname": "Tata Consultancy Services",
+                    "price": "₹3,890",
+                    "percentage": "-2.10 (-0.54%)",
+                    "marketcap": "₹14,60,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 3,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/HDFCBank.webp",
+                    "companyname": "HDFC Bank",
+                    "price": "₹1,650",
+                    "percentage": "1.80 (0.75%)",
+                    "marketcap": "₹11,20,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 4,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/Infosys.webp",
+                    "companyname": "Infosys Ltd",
+                    "price": "₹1,550",
+                    "percentage": "-3.20 (-0.68%)",
+                    "marketcap": "₹6,50,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 5,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/HUL.webp",
+                    "companyname": "Hindustan Unilever",
+                    "price": "₹2,370",
+                    "percentage": "1.90 (0.80%)",
+                    "marketcap": "₹5,80,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 6,
+                    "cat": "large",
+                    "logo": "../../public/stocksicon/ICICI.webp",
+                    "companyname": "ICICI Bank",
+                    "price": "₹960",
+                    "percentage": "-2.45 (-1.10%)",
+                    "marketcap": "₹7,10,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 7,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/BajajFinance.webp",
+                    "companyname": "Bajaj Finance",
+                    "price": "₹7,120",
+                    "percentage": "5.50 (0.78%)",
+                    "marketcap": "₹4,10,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 8,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/LT.webp",
+                    "companyname": "Larsen & Toubro",
+                    "price": "₹3,250",
+                    "percentage": "-8.75 (-1.30%)",
+                    "marketcap": "₹3,80,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 9,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/SBI.webp",
+                    "companyname": "State Bank of India",
+                    "price": "₹620",
+                    "percentage": "6.50 (1.05%)",
+                    "marketcap": "₹5,20,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 10,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/Zomato.webp",
+                    "companyname": "Zomato Ltd",
+                    "price": "₹150",
+                    "percentage": "2.85 (1.90%)",
+                    "marketcap": "₹1,40,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 11,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/AsianPaints.webp",
+                    "companyname": "Asian Paints",
+                    "price": "₹2,960",
+                    "percentage": "-3.70 (-1.25%)",
+                    "marketcap": "₹3,10,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 12,
+                    "cat": "mid",
+                    "logo": "../../public/stocksicon/Titan.webp",
+                    "companyname": "Titan Company",
+                    "price": "₹3,220",
+                    "percentage": "4.20 (1.40%)",
+                    "marketcap": "₹2,90,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 13,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Nykaa.webp",
+                    "companyname": "Nykaa",
+                    "price": "₹285",
+                    "percentage": "-4.20 (-2.50%)",
+                    "marketcap": "₹65,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 14,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Paytm.webp",
+                    "companyname": "Paytm",
+                    "price": "₹600",
+                    "percentage": "8.10 (1.75%)",
+                    "marketcap": "₹50,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 15,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Dmart.webp",
+                    "companyname": "Avenue Supermarts (DMart)",
+                    "price": "₹4,150",
+                    "percentage": "-10.25 (-0.92%)",
+                    "marketcap": "₹3,20,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 16,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Britannia.webp",
+                    "companyname": "Britannia Industries",
+                    "price": "₹4,750",
+                    "percentage": "12.50 (1.40%)",
+                    "marketcap": "₹1,20,000 Cr",
+                    "trend": true
+                },
+                {
+                    "id": 17,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Airtel.webp",
+                    "companyname": "Bharti Airtel",
+                    "price": "₹1,100",
+                    "percentage": "-2.80 (-0.95%)",
+                    "marketcap": "₹5,30,000 Cr",
+                    "trend": false
+                },
+                {
+                    "id": 18,
+                    "cat": "small",
+                    "logo": "../../public/stocksicon/Mindtree.webp",
+                    "companyname": "LTIMindtree",
+                    "price": "₹5,290",
+                    "percentage": "6.30 (1.20%)",
+                    "marketcap": "₹1,85,000 Cr",
+                    "trend": true
+                }              
+            ]
+        }
+    }
+]

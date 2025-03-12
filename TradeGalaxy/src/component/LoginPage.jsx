@@ -72,6 +72,7 @@ function LoginPage({open, close }){
         .then(res => {
           if(res.status==200){
               setLoginerror('')
+              localStorage.setItem('Token',res.data)
               navigate('/home')
           }})
         .catch(e => {

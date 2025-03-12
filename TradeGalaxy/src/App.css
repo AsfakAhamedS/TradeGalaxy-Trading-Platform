@@ -301,9 +301,7 @@ input:focus {
   font-weight: 510;
 }
 .head-item button:hover{
-  color: teal;
-  text-decoration: underline;
-  text-underline-offset: 8px;
+  color: teal !important;
 }
 .home-content{
   margin: 20px 75px 0px 65px; 
@@ -316,16 +314,22 @@ input:focus {
   font-weight: 535;
   margin-bottom: 12px;
 }
+.stock-title-btn{
+  margin-top: 30px;
+  line-height: 1.5rem;
+  font-weight: 535;
+  margin-bottom: 12px;
+}
+.stock-title-btn:hover{
+  color: teal;
+}
 .s-indices{
   display: flex;
   border: 1px solid #b8b8b8;
-  width: 240px;
+  width: 230px;
   padding: 10px 20px;
   border-radius: 10px;
-}
-.stock-content{
-  display: flex;
-  gap: 10px;
+  position: relative;
 }
 .in-item{
   font-size: 14px;
@@ -336,7 +340,15 @@ input:focus {
 .dot{
   display: flex;
   align-items: center;
-  margin-left: 15px;
+  position: relative;
+  left: 30px;
+}
+.forex-dot{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 90%;
+  top: 40%;
 }
 .mt-head{
   margin-top: 60px;
@@ -345,9 +357,13 @@ input:focus {
   font-weight: 535;
   margin-bottom: 20px;
 }
-.c-trade{
-  display: flex;
-  gap: 15px;
+.mt-head-btn{
+  background: none;
+  border: none;
+  font-size: 14px;
+}
+.mt-head-btn:hover{
+  color: teal;
 }
 .c-trade-border{
   display: flex;
@@ -379,6 +395,11 @@ input:focus {
   font-size: 14px;
   line-height: 1.25rem;
   font-weight: 535;
+}
+.stock-icons{
+  box-shadow: -2px 1px 11px -1px rgba(0,0,0,0.1);
+-webkit-box-shadow: -2px 1px 11px -1px rgba(0,0,0,0.1);
+-moz-box-shadow: -2px 1px 11px -1px rgba(0,0,0,0.1);
 }
 .tg-head{
   margin-top: 60px;
@@ -598,9 +619,9 @@ td{
   position: sticky;
   top: 10px;
   border: 1px solid #b8b8b8;
-  width: 90%;
-  height: 400px;
-  border-radius: 30px;
+  width: 85%;
+  height: 500px;
+  border-radius: 15px;
   margin-top: 25px;
   margin-left: 30px;
 }
@@ -616,6 +637,80 @@ td{
 .db-left .db-table{
   width: 90%;
 }
+.db-data button{
+  background: none;
+  border: none;
+}
+.dash-icon:hover{
+  background-color: #d1d0d0;
+  border-radius: 50%;
+}
+.card-title{
+  padding: 25px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.card-bit{
+  display: flex;
+  gap: 20px;
+  padding: 25px 25px 15px 25px;
+}
+.card-bit div button{
+  background: none;
+  border: none;
+  font-size: 15px !important;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.trade-day{
+  display: flex;
+  gap: 20px;
+  padding: 15px 0px 10px 25px;
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.trade-day div{
+  border: 1px solid #000;
+  border-radius: 40px;
+  padding: 2px 6px 0px 6px;
+}
+.trade-day div:hover{
+  background-color: #F0F0F2;
+}
+.buying{
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+}
+.card-text{
+  font-size: x-small;
+  line-height: 1.25rem;
+  font-weight: 435;
+  text-align: center;
+  position: relative;
+  top: 95px;
+}
+.buy-btn{
+  padding: 15px 25px 0px 25px;
+}
+.buy-btn button{
+  padding: 10px;
+  width: 100%;
+  line-height: 1.25rem;
+  font-weight: 535;
+  color: #fff;
+  background-color: #00B386;
+  border: none;
+  border-radius: 10px;
+}
+.buy-btn button:hover{
+  color: #fff !important;
+  background-color: #008f6b !important;
+}
+
+
+
 
 
 
@@ -671,15 +766,22 @@ td{
   gap: 40px;
   padding-top: 2px;
 }
-.item{
+li{
+  list-style: none;
+}
+li .item{
+  display: block;
+  color: #000;
+  text-decoration: none;
   font-size: 18px;
   line-height: 25px;
   font-weight: 535;
   border: none;
   background: none;
+  margin-top: 25px;
 }
-.item:hover{
-  color: teal;
+li .item:hover{
+  color: teal !important;
 }
 .s-bar{
   display: flex;
@@ -770,6 +872,14 @@ td{
   display: block;
   padding: 20px;
   border-bottom: 1px solid #d1d1d1;
+}
+.nav-lout-btn{
+  background: none;
+  border: none;
+  font-size: 14px;
+  line-height: 1.25rem;
+  font-weight: 535;
+  color: teal;
 }
 
 .dropdown-content a:hover {

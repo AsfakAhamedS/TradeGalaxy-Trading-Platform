@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from "react-router";
+import { useNavigate } from 'react-router-dom';
 
-function Header(){
+function Header({pageactive}){
+    const navigate = useNavigate(); 
+    const handleLogout = () => {
+        localStorage.removeItem('Token')
+        navigate('/')
+    }
     return(
         <>
             <div className="navbar">
@@ -11,8 +18,8 @@ function Header(){
                             <h2 style={{marginTop:"10px"}}>Trade<span style={{color:"teal"}}>Galaxy</span></h2>
                         </div>
                         <div className="nav-item">
-                            <button className='item'>Explore</button>
-                            <button className='item'>Dashboard</button>
+                            <li><Link to="/home" className='item' style={{color: `${pageactive.active === "home" ? "teal" : "#000"}`}}>Explore</Link></li>
+                            <li><Link to="/dashboard" className='item' style={{color: `${pageactive.active === "dashboard" ? "teal" : "#000"}`}}>Dashboard</Link></li>
                         </div>
                     </div>
                     <div className="nav-center">
@@ -38,7 +45,7 @@ function Header(){
                                     <a href="#">Profile</a>
                                     <a href="#">All Orders</a>
                                     <a href="#">Setting</a>
-                                    <a href="#" style={{textAlign:"end",color:"teal"}}>Logout</a>
+                                    <a href="#" style={{textAlign:"end",color:"teal"}}><button onClick={handleLogout} className='nav-lout-btn'>Logout</button></a>
                                 </div>
                             </div>
                         </button>

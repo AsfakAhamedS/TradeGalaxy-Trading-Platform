@@ -29,13 +29,13 @@ app.post('/getuserlogindata', async(req,res) => {
         const result = await collection.find({email,password}).toArray()
         await client.close()
         if(!result.length>0 ){
-            res.status(401).send("Invalid Email and Password");
+            res.status(401).send("Invalid Email and Password")
             return
         }
         //console.log(result)
         const token = jwt.sign({ id: result._id, email: result.email }, JWT_SECRET, { expiresIn: "1h" });
         console.log(token)
-        res.status(200).send("Success")
+        res.status(200).send(token)
     }catch(e){
 
         console.log(e)
