@@ -6,6 +6,7 @@ import Dashboard from './component/Dashboard'
 import ProfilePage from './component/ProfilePage'
 import WalletPage from './component/WalletPage'
 import StockdetailPage from './component/StockdetailPage'
+import CartPage from './component/CartPage'
 import './App.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage/>} />
           <Route path="/wallet" element={<WalletPage/>} />
           <Route path="/stock" element={<StockdetailPage/>} />
+          <Route path="/cart" element={<CartPage/>} />
         </Routes>
       </BrowserRouter>
     </>

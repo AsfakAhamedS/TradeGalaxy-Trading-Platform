@@ -187,13 +187,7 @@ function LoginPage({open, close }){
                                         <div className="c-error">{`${error == 'conpassword' ? "Password doesn't match" : ""}`}</div>
                                     </div>
                                     <div className="form-grp">
-                                        <input type="checkbox" checked={checked} disabled={disable}  onChange={(e) => {
-                                            setChecked(!checked)
-                                            //console.log(formdata);
-                                            //setFormdata((prev)=>({...prev,["termsAccepted"]:true}))
-                                            //setVerified(verify())
-                                            //setDisable(true)
-                                            }} className="checkbox"/>
+                                        <input type="checkbox" checked={checked} disabled={disable}  onChange={(e) => {setChecked(!checked)}} className="checkbox"/>
                                         <label>
                                             <span className='input-label'>I agree to the Terms & Conditions</span>
                                         </label>

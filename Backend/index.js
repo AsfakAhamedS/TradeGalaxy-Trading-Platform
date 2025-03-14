@@ -100,6 +100,7 @@ app.post("/getuserdata", async (req, res) => {
         }
         res.status(200).send(user)
         console.log(user)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -167,6 +168,7 @@ app.post("/getmarketdata", async (req, res) => {
             [...major,...minor,...exotic]
         ]
         res.status(200).send(data)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -193,6 +195,7 @@ app.post("/getfullstockdata", async (req, res) => {
         }
 
         res.status(200).send(indian_stocks)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -219,6 +222,7 @@ app.post("/getallpopularfunds", async (req, res) => {
         }
 
         res.status(200).send(popular_funds)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -245,6 +249,7 @@ app.post("/getallforexstock", async (req, res) => {
         }
 
         res.status(200).send(forex_stocks)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -271,6 +276,7 @@ app.post("/getallcommodities", async (req, res) => {
         }
 
         res.status(200).send(forex_commodities)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -297,6 +303,7 @@ app.post("/getalltopgainer", async (req, res) => {
         }
 
         res.status(200).send(indian_stocks)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -323,6 +330,7 @@ app.post("/getallfando", async (req, res) => {
         }
 
         res.status(200).send(future_option)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -349,6 +357,7 @@ app.post("/getallcurrency", async (req, res) => {
         }
 
         res.status(200).send(forex_currency)
+        await client.close()
     } catch (e) {
         console.error("Error:", e)
         res.status(500).send("Server error")
@@ -365,8 +374,8 @@ app.get("/wallet/balance", async (req, res) => {
         }
         const { client, collection } = await getCollection("TradeGalaxy", "user")
         const userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
-        client.close();
         return res.status(200).json({ balance: userWallet?.balance || 0 })
+        await client.close()
     } catch (error) {
         console.error("Error fetching wallet balance:", error)
         return res.status(500).json({ message: "Server error" })
@@ -391,8 +400,8 @@ app.post("/wallet/add", async (req, res) => {
             {uniqueclientcode:"ClientCode1741887120779"},
             { $set: { balance: newBalance }, $push: { transactions: { type: "Added", amount, date: new Date() } } }
         )
-        client.close()
         return res.status(200).json({ message: "Money added successfully!", balance: newBalance })
+        await client.close()
     } catch (error) {
         console.error("Error adding money:", error)
         return res.status(500).json({ message: "Server error" })
@@ -419,22 +428,13 @@ app.post("/wallet/withdraw", async (req, res) => {
             {uniqueclientcode:"ClientCode1741887120779"},
             { $set: { balance: newBalance }, $push: { transactions: { type: "Withdrawn", amount, date: new Date() } } }
         )
-        client.close()
-
         return res.status(200).json({ message: "Money withdrawn successfully!", balance: newBalance })
+        await client.close()
     } catch (error) {
         console.error("Error withdrawing money:", error)
         return res.status(500).json({ message: "Server error" })
     }
 })
-
-
-
-
-
-
-
-
 
 
 app.listen(port,()=>{
