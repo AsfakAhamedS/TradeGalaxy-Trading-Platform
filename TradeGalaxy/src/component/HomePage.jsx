@@ -1,11 +1,13 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect   } from 'react'
 import axios from "axios";
 import Header from './Header'
 import Footer from './Footer'
+import { useNavigate } from 'react-router-dom';
 
 const url = "http://localhost:4500/"
 
 function HomePage(){
+    const navigate = useNavigate(); 
     const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem('Token'))
     const [select,setSelect] = useState("stock")
     const [marketdata,setMarketdata] = useState(null)
@@ -204,9 +206,9 @@ function HomePage(){
                                 </div>
                                 <div className="c-trade" style={{display:"flex",gap:"13px",flexWrap:"wrap"}}>
                                     {(!show ? marketdata?.[1] : allstockdata)?.map((indexitem) => (
-                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none"}} className='stock-icons'/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}} className='stock-icons'/>
                                                 { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                 )}
@@ -216,45 +218,6 @@ function HomePage(){
                                             <div className="c-trade-per" style={{color:`${indexitem.trend ? "#00B386" : "#EB5B3C"}`}}>{indexitem.percentage}</div>
                                         </div>
                                     ))}
-                                    {/* {marketdata?.[1].map((group, groupIndex) => (
-                                        <div 
-                                            key={groupIndex} 
-                                            style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}
-                                        >
-                                            {group?.map((item) => (
-                                            <div 
-                                                className="s-indices" 
-                                                key={item.id}
-                                                onMouseEnter={() => setShown(item.id)}
-                                                onMouseLeave={() => setShown(null)}
-                                            >
-                                                <div>
-                                                <div className="in-item">{item.indices}</div>
-                                                <div className="in-item">
-                                                    {item.opening}{" "}
-                                                    <span style={{ 
-                                                    color: item.trend ? "#00B386" : "#EB5B3C", 
-                                                    marginLeft: "5px" 
-                                                    }}>
-                                                    {item.percentage}
-                                                    </span>
-                                                </div>
-                                                </div>
-                                                {shown === item.id && (
-                                                <div className="dot">
-                                                    <svg 
-                                                    xmlns="http://www.w3.org/2000/svg" 
-                                                    viewBox="0 0 128 512" 
-                                                    style={{ width: "16px", height: "16px" }}
-                                                    >
-                                                    <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z"/>
-                                                    </svg>
-                                                </div>
-                                                )}
-                                            </div>
-                                            ))}
-                                        </div>
-                                        ))} */}
 
                                 </div>
                             </div>
@@ -273,7 +236,7 @@ function HomePage(){
                                         indexitem.cat === topgainer && (
                                             <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"1px solid #000"}}/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
                                                     { mosttradeshown === indexitem.id && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                     )}
@@ -301,7 +264,7 @@ function HomePage(){
                                         indexitem.cat === toploser && (
                                             <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"1px solid #000"}}/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
                                                     { mosttradeshown === indexitem.id && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                     )}
@@ -356,7 +319,7 @@ function HomePage(){
                                         {(!tableshowall ? marketdata?.[3] : allfando)?.map((indexitem) => (
                                                 indexitem.cat === fando && (
                                                     <tr key={indexitem.id}>
-                                                        <td><img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"1px solid #000"}}/></td>
+                                                        <td><img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/></td>
                                                         <td style={{width:"900px",fontWeight:"535"}}>{indexitem.companyname}</td>
                                                         <td style={{width:"150px"}}>{indexitem.open}</td>
                                                         <td style={{width:"150px"}}>{indexitem.close}</td>
@@ -393,7 +356,7 @@ function HomePage(){
                                     {(!showfunds ? marketdata?.[4] : allfunddata)?.map((indexitem) => (
                                         <div className="c-trade-border" style={{maxHeight:"185px"}} key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"1px solid #000"}}/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
                                                 { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                 )}
@@ -437,7 +400,7 @@ function HomePage(){
                                     {(!fstockshow ? marketdata?.[6] : allfstockdata)?.map((indexitem) => (
                                         <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px"}}  className='stock-icons'/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}  className='stock-icons'/>
                                                 { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                 )}
@@ -458,7 +421,7 @@ function HomePage(){
                                     {(!fcommodityshow ?  marketdata?.[7] : allcommodities)?.map((indexitem) => (
                                         <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
                                             <div style={{position:"relative"}}>
-                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"1px solid #000"}}/>
+                                                <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
                                                 { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
                                                 )}

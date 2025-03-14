@@ -73,7 +73,9 @@ app.post('/createuserdata', async(req,res) => {
             password: password,
             phone:phone,
             uniqueclientcode:clientcode,
-            demataccno:demataccno
+            demataccno:demataccno,
+            balance:0,
+            transactions:[]
         })
         await client.close()
         res.status(200).send("Success")
@@ -352,6 +354,83 @@ app.post("/getallcurrency", async (req, res) => {
         res.status(500).send("Server error")
     }
 })
+
+app.get("/wallet/balance", async (req, res) => {
+    try {
+        const { client, collection } = await getCollection("TradeGalaxy", "user")
+        const userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+        client.close();
+        return res.status(200).json({ balance: userWallet?.balance || 0 })
+    } catch (error) {
+        console.error("Error fetching wallet balance:", error)
+        return res.status(500).json({ message: "Internal server error" })
+    }
+})
+app.post("/wallet/add", async (req, res) => {
+    const { Token, amount } = req.body;
+
+    if (!Token) return res.status(401).json({ message: "Unauthorized: No token provided" })
+
+    try {
+        const decoded = jwt.verify(Token, JWT_SECRET)
+        if (!decoded) return res.status(403).json({ message: "Invalid token" })
+
+        const { client, collection } = await getCollection("TradeGalaxy", "user")
+
+        let userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+
+        if (!userWallet) {
+            userWallet = { userId: "123", balance: 0, transactions: [] }
+            await collection.insertOne(userWallet)
+        }
+
+        const newBalance = userWallet.balance + amount;
+        await collection.updateOne(
+            {uniqueclientcode:"ClientCode1741887120779"},
+            { $set: { balance: newBalance }, $push: { transactions: { type: "Added", amount, date: new Date() } } }
+        )
+
+        client.close()
+
+        return res.status(200).json({ message: "Money added successfully!", balance: newBalance })
+    } catch (error) {
+        console.error("Error adding money:", error)
+        return res.status(500).json({ message: "Internal server error" })
+    }
+})
+app.post("/wallet/withdraw", async (req, res) => {
+    const { Token, amount } = req.body
+
+    if (!Token) return res.status(401).json({ message: "Unauthorized: No token provided" })
+
+    try {
+        const decoded = jwt.verify(Token, JWT_SECRET)
+        if (!decoded) return res.status(403).json({ message: "Invalid token" })
+
+        const { client, collection } = await getCollection("TradeGalaxy", "user")
+
+        let userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+
+        if (!userWallet || userWallet.balance < amount) {
+            client.close()
+            return res.status(400).json({ message: "Insufficient balance" })
+        }
+
+        const newBalance = userWallet.balance - amount
+        await collection.updateOne(
+            {uniqueclientcode:"ClientCode1741887120779"},
+            { $set: { balance: newBalance }, $push: { transactions: { type: "Withdrawn", amount, date: new Date() } } }
+        )
+
+        client.close()
+
+        return res.status(200).json({ message: "Money withdrawn successfully!", balance: newBalance })
+    } catch (error) {
+        console.error("Error withdrawing money:", error)
+        return res.status(500).json({ message: "Internal server error" })
+    }
+})
+
 
 
 

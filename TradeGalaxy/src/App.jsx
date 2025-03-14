@@ -4,6 +4,8 @@ import LandingPage from './component/LandingPage'
 import HomePage from './component/HomePage'
 import Dashboard from './component/Dashboard'
 import ProfilePage from './component/ProfilePage'
+import WalletPage from './component/WalletPage'
+import StockdetailPage from './component/StockdetailPage'
 import './App.css'
 
 function App() {
@@ -16,6 +18,8 @@ function App() {
           <Route path="/home" element={<HomePage/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
           <Route path="/profile" element={<ProfilePage/>} />
+          <Route path="/wallet" element={<WalletPage/>} />
+          <Route path="/stock" element={<StockdetailPage/>} />
         </Routes>
       </BrowserRouter>
     </>

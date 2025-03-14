@@ -8,7 +8,7 @@ const url = "http://localhost:4500/"
 
 function profilePage(){
     const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem('Token'))
-    const [userdata,setUserdata] = useState(null)
+    const [userdata,setUserdata] = useState([])
 
     useEffect(() => {
         getuserdetails()
@@ -17,6 +17,7 @@ function profilePage(){
         axios.post(url+"getuserdata", {token:isLoggedIn})
           .then(res => {
             if(res.status==200){
+                console.log(res.data)
                 setUserdata(res.data)
             }})
           .catch(e => {
@@ -38,7 +39,7 @@ function profilePage(){
                         <div className='pro_circle'>
                             <img src="../../public/logo/profilepic.jpg" alt="" className="pro_circle-img"/>
                         </div>
-                        <div className='pro_name'>Asfak Ahamed S</div>
+                        <div className='pro_name'>{userdata[0]?.name || "N/A"}</div>
                     </div>
                     <div className='pro_deatil'>
                         <div className='menu'>Basic Deatils <span className='right_aarow'><MdKeyboardArrowRight style={{width:"24px",height:"24px"}}/></span></div>
@@ -54,15 +55,15 @@ function profilePage(){
                     <div className="left_acc_detail">
                         <div className="acc-grp">
                             <label className='acc_label'>User Name</label>
-                            <div className='acc_detail'>{userdata?.name}</div>
+                            <div className='acc_detail'>{userdata[0]?.name || "N/A"}</div>
                         </div>
                         <div className="acc-grp">
                             <label className='acc_label'>Email</label>
-                            <div className='acc_detail'>{userdata?.email}</div>
+                            <div className='acc_detail'>{userdata[0]?.email || "N/A"}</div>
                         </div>
                         <div className="acc-grp">
                             <label className='acc_label'>Mobile</label>
-                            <div className='acc_detail'>{userdata?.phone}</div>
+                            <div className='acc_detail'>{userdata[0]?.phone || "N/A"}</div>
                         </div>
                         <div className="acc-grp">
                         </div>
@@ -71,11 +72,11 @@ function profilePage(){
                     <div className="right_acc_detail">
                         <div className="acc-grp">
                             <label className='acc_label'>Unique Client Code</label>
-                            <div className='acc_detail'>{userdata?.uniqueclientcode}</div>
+                            <div className='acc_detail'>{userdata[0]?.uniqueclientcode || "N/A"} </div>
                         </div>
                         <div className="acc-grp">
                             <label className='acc_label'>Demat Account No.</label>
-                            <div className='acc_detail'>{userdata?.demataccno}</div>
+                            <div className='acc_detail'>{userdata[0]?.demataccno || "N/A"} </div>
                         </div>
                     </div>
                 </div>
