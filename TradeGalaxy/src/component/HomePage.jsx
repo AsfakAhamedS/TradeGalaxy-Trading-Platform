@@ -46,6 +46,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           }) 
       }
     
@@ -58,6 +60,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function toggleone(){
@@ -69,6 +73,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function toggles(){
@@ -80,6 +86,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function toggletwo(){
@@ -91,6 +99,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function togglethree(){
@@ -102,6 +112,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
         
     }
@@ -114,6 +126,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function togglefive(){
@@ -125,6 +139,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     function togglesix(){
@@ -136,6 +152,8 @@ function HomePage(){
             }})
           .catch(e => {
             console.log(e.response.data)
+            localStorage.removeItem('Token')
+            navigate('/')
           })
     }
     return(
@@ -157,11 +175,11 @@ function HomePage(){
                     textDecoration : `${select === "forex" ? "underline" : "none"}`,
                     fontSize : `${select === "forex" ? "18px" : null}`,
                     textUnderlineOffset : `${select === "forex" ? "8px" : null}`}}>Forex</button></li>
-                    <li className='head-item itemfive'><button onClick={() => {setSelect("crypto")}}
+                    {/* <li className='head-item itemfive'><button onClick={() => {setSelect("crypto")}}
                     style={{color : `${select === "crypto" ? "teal" : "#000"}`,
                     textDecoration : `${select === "crypto" ? "underline" : "none"}`,
                     fontSize : `${select === "crypto" ? "18px" : null}`,
-                    textUnderlineOffset : `${select === "crypto" ? "8px" : null}`}}>Crypto</button></li>
+                    textUnderlineOffset : `${select === "crypto" ? "8px" : null}`}}>Crypto</button></li> */}
                 </ul>
             </div>
             <hr style={{marginTop:"20px",color:"#b8b8b8"}}/>
@@ -209,9 +227,9 @@ function HomePage(){
                                         <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}} className='stock-icons'/>
-                                                { mosttradeshown === indexitem.id && (
+                                                {/* { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                )}
+                                                )} */}
                                             </div>
                                             <div className="c-trade-title">{indexitem.companyname}</div>
                                             <div className="c-trade-price">{indexitem.price}</div>
@@ -234,12 +252,12 @@ function HomePage(){
                                 <div className="large-trade" style={{display:"flex",gap:"10px",flexWrap:"wrap"}}>
                                     {(!showallgain ? marketdata?.[2] : alltopgainer)?.map((indexitem) => (
                                         indexitem.cat === topgainer && (
-                                            <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                            <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
-                                                    { mosttradeshown === indexitem.id && (
+                                                    {/* { mosttradeshown === indexitem.id && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                    )}
+                                                    )} */}
                                                 </div>
                                                 <div className="large-trade-title">{indexitem.companyname}</div>
                                                 <div className="large-trade-price">{indexitem.price}</div>
@@ -262,12 +280,12 @@ function HomePage(){
                                 <div className="large-trade">
                                     {(!showall ? marketdata?.[2] : alltopgainer)?.map((indexitem) => (
                                         indexitem.cat === toploser && (
-                                            <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                            <div className="large-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
-                                                    { mosttradeshown === indexitem.id && (
+                                                    {/* { mosttradeshown === indexitem.id && (
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                    )}
+                                                    )} */}
                                                 </div>
                                                 <div className="large-trade-title">{indexitem.companyname}</div>
                                                 <div className="large-trade-price">{indexitem.price}</div>
@@ -354,12 +372,12 @@ function HomePage(){
                                 </div>
                                 <div className="c-trade" style={{display:"flex",gap:"15px",flexWrap:"wrap"}}>
                                     {(!showfunds ? marketdata?.[4] : allfunddata)?.map((indexitem) => (
-                                        <div className="c-trade-border" style={{maxHeight:"185px"}} key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                        <div className="c-trade-border" style={{maxHeight:"185px"}} key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
-                                                { mosttradeshown === indexitem.id && (
+                                                {/* { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                )}
+                                                )} */}
                                             </div>
                                             <div className="c-trade-title">{indexitem.fund_name}</div>
                                             <div className="c-trade-price">{indexitem.nav}</div>
@@ -378,7 +396,7 @@ function HomePage(){
                             </div>
                             <div className="stock-content" style={{display:"flex",gap:"14px",flexWrap:"wrap"}}>
                                     {marketdata?.[5]?.map((indexitem) => (
-                                        <div className="s-indices" key={indexitem.id} onMouseEnter={() => {setShown(indexitem.id)}} onMouseLeave={() => {setShown(null)}}>
+                                        <div className="s-indices" key={indexitem.id} onMouseEnter={() => {setShown(indexitem.id)}} onMouseLeave={() => {setShown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div>
                                                 <div className='in-item'>{indexitem.indices}</div>
                                                 <div className='in-item'>{indexitem.opening} <span style={{color:`${indexitem.trend ? "#00B386" : "#EB5B3C"}`,marginLeft:"5px"}}>{indexitem.percentage}</span></div>
@@ -398,12 +416,12 @@ function HomePage(){
                                 </div>
                                 <div className="c-trade" style={{display:"flex",gap:"15px",flexWrap:"wrap"}}>
                                     {(!fstockshow ? marketdata?.[6] : allfstockdata)?.map((indexitem) => (
-                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}  className='stock-icons'/>
-                                                { mosttradeshown === indexitem.id && (
+                                                {/* { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                )}
+                                                )} */}
                                             </div>
                                             <div className="c-trade-title">{indexitem.companyname}</div>
                                             <div className="c-trade-price">{indexitem.price}</div>
@@ -419,12 +437,12 @@ function HomePage(){
                                 </div>
                                 <div className="c-trade" style={{display:"flex",gap:"15px",flexWrap:"wrap"}}>
                                     {(!fcommodityshow ?  marketdata?.[7] : allcommodities)?.map((indexitem) => (
-                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}}>
+                                        <div className="c-trade-border" key={indexitem.id} onMouseEnter={() => {setMosttradeshown(indexitem.id)}} onMouseLeave={() => {setMosttradeshown(null)}} onClick={() => navigate("/stock", { state: { stock: indexitem } })}>
                                             <div style={{position:"relative"}}>
                                                 <img src={indexitem.logo} alt="logo"  style={{width:"38px",height:"38px",border:"none",boxShadow:"0 4px 8px rgba(0, 0, 0, 0.1"}}/>
-                                                { mosttradeshown === indexitem.id && (
+                                                {/* { mosttradeshown === indexitem.id && (
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style={{width:"18px",height:"18px",position:"absolute",right:"10px",top:"5px"}}><path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 144L48 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l144 0 0 144c0 17.7 14.3 32 32 32s32-14.3 32-32l0-144 144 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-144 0 0-144z"/></svg>
-                                                )}
+                                                )} */}
                                             </div>
                                             <div className="c-trade-title">{indexitem.commodity}</div>
                                             <div className="c-trade-price">{indexitem.price}</div>

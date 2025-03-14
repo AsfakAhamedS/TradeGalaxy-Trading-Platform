@@ -44,12 +44,12 @@ function LandingPage(){
                         </div>
                     </div>
                     <div style={{flex:"1"}}>
-
+                        <iframe style={{marginTop:"120px",borderRadius:"20px"}} width="560" height="315" src="https://www.youtube.com/embed/EYwLa1ZWD2o?si=yn9sxnt-SFgLyF7T" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div className='market-sec'>
                     <div style={{flex:"1"}}>
-                        
+                        <iframe style={{marginTop:"120px",borderRadius:"20px"}} width="560" height="315" src="https://www.youtube.com/embed/MFqvLMctU_U?si=0-U2xDmZgADNi9PV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                     <div style={{flex:"1"}}>
                         <div className="im-head">
@@ -80,7 +80,7 @@ function LandingPage(){
                         </div>
                     </div>
                     <div style={{flex:"1"}}>
-
+                        <iframe style={{marginTop:"120px",borderRadius:"20px"}} width="560" height="315" src="https://www.youtube.com/embed/spPTV6_McF8?si=hPZkIU10LI4mkLF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div className="land-heading">

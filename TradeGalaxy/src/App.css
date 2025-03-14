@@ -374,7 +374,7 @@ input:focus {
   max-height: 172px;
   padding: 16px;
 }
-.c-trade-border:hover{
+.c-trade-border:hover,.large-trade-border:hover{
   padding: 15px;
 }
 .c-trade-title{
@@ -595,7 +595,7 @@ td{
 .port-amt{
   display: flex;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #b8b8b8;
   border-bottom: none;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
@@ -625,10 +625,6 @@ td{
   margin-top: 25px;
   margin-left: 30px;
 }
-
-
-
-
 .db-heading{
   font-size: 18px;
   line-height: 1.25rem;
@@ -646,9 +642,19 @@ td{
   border-radius: 50%;
 }
 .card-title{
-  padding: 25px;
+  padding: 25px 0px 5px 25px;
+  font-size: 22px;
   line-height: 1.25rem;
   font-weight: 535;
+}
+.card-sub_title{
+  padding: 0px 0px 10px 25px;
+  font-size: 12px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.card-sub_title span{
+  color: #27ae60;
 }
 .card-bit{
   display: flex;
@@ -942,8 +948,21 @@ td{
 }
 
 /* Stocks  Details */
-/* General container styling */
-/* Stock Details Container */
+.stock_content{
+  display: flex;
+}
+.buysell-box {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 400px;
+  text-align: center;
+  margin: 60px 75px 0px 0px;
+}
 .stock-details-container {
   max-width: 900px;
   margin: 20px 75px 0px 65px; 
@@ -1026,27 +1045,53 @@ td{
   justify-content: center;
   gap: 15px;
 }
-
-.buy-button,
-.sell-button {
-  padding: 12px 20px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  width: 120px;
+.stock_trade-day{
+  display: flex;
+  gap: 20px;
+  padding: 7px 40px 10px 10px;
+  font-size: 12px;
+  line-height: 1.25rem;
+  font-weight: 535;
+}
+.stock_trade-day div{
+  border: 1px solid #000;
+  border-radius: 40px;
+  padding: 2px 6px 0px 6px;
+}
+.stock_trade-day div:hover{
+  background-color: #F0F0F2;
+}
+.buying{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.card-text{
+  font-size: x-small;
+  line-height: 1.25rem;
+  font-weight: 435;
   text-align: center;
-  border-radius: 5px;
+  position: relative;
+  top: 80px;
 }
-
-.buy-button {
+.buy-btn{
+  padding: 15px 25px 0px 25px;
+}
+.buy-btn button{
+  padding: 10px;
+  width: 100%;
+  line-height: 1.25rem;
+  font-weight: 535;
+  color: #fff;
   background-color: #00B386;
-  color: white;
+  border: none;
+  border-radius: 10px;
+}
+.buy-btn button:hover{
+  color: #fff !important;
+  background-color: #008f6b !important;
 }
 
-.sell-button {
-  background-color: #EB5B3C;
-  color: white;
-}
 
 
 

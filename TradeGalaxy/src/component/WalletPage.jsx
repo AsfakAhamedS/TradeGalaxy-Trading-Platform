@@ -2,57 +2,58 @@ import React, { useState,useEffect } from 'react'
 import axios from "axios";
 import Header from './Header'
 
+const url = "http://localhost:4500/"
+
 function WalletPage(){
-    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("Token"));
-    const [activeTab, setActiveTab] = useState("add");
-    const [amount, setAmount] = useState("");
-    const [walletBalance, setWalletBalance] = useState(0);
-    const [transactions, setTransactions] = useState([]);
+    const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("Token"))
+    const [activeTab, setActiveTab] = useState("add")
+    const [amount, setAmount] = useState("")
+    const [walletBalance, setWalletBalance] = useState(0)
+    const [transactions, setTransactions] = useState([])
 
     useEffect(() => {
         fetchWalletBalance()
     }, [])
-
     function fetchWalletBalance(){
-        try {
-            const response =  axios.get("http://localhost:4500/wallet/balance")
-            setWalletBalance(response.data.balance)
-            console.log(walletBalance)
-        } catch (error) {
-            console.error("Error fetching balance:", error)
-        }
+        axios.get(url+"wallet/balance",{token:isLoggedIn})
+            .then(res => {
+                setWalletBalance(res.data.balance)
+                console.log(walletBalance)
+            })
+            .catch(e =>  {
+                console.error("Error fetching balance:", e)
+                localStorage.removeItem('Token')
+                navigate('/')
+            })
     }
-
     function handleAmountChange(e){
         const value = e.target.value.replace(/[^0-9]/g, "")
         setAmount(value)
     }
-
     const handleWallet = async (e) => {
         e.preventDefault()
         const amt = Number(amount)
-
         if (amt <= 0) {
             alert("Please enter a valid amount!")
             return
         }
+        const path = activeTab === "add" ? "wallet/add" : "wallet/withdraw"
 
-        const url = activeTab === "add" ? "http://localhost:4500/wallet/add" : "http://localhost:4500/wallet/withdraw"
-
-        try {
-            const response = await axios.post(url, {Token:isLoggedIn, amount: amt })
-            alert(response.data.message)
-            setWalletBalance(response.data.balance)
-            setTransactions((prev) => [
-                ...prev,
-                { type: activeTab === "add" ? "Added" : "Withdrawn", amount: amt, date: new Date().toLocaleDateString() },
-            ]);
-            setAmount("")
-        } catch (error) {
-            alert(error.response?.data?.message || "Something went wrong")
-        }
+        axios.post(url+path, {token:isLoggedIn, amount: amt })
+            .then(res => {
+                alert(res.data.message)
+                setWalletBalance(res.data.balance)
+                setTransactions((prev) => [
+                    ...prev,{ type: activeTab === "add" ? "Added" : "Withdrawn", amount: amt, date: new Date().toLocaleDateString() },
+                ])
+                setAmount("")
+            })
+            .catch(e =>{
+                alert(e.response?.data?.message || "Something went wrong")
+                localStorage.removeItem('Token')
+                navigate('/')
+            })
     }
-
     const addAmount = (value) => {
         setAmount((prev) => String(Number(prev) + value))
     }

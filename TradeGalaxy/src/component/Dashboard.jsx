@@ -11,35 +11,40 @@ const portfolio = [
         "companyname":"TATA",
         "mprice":"₹500",
         "return":"₹100",
-        "cprice":"₹600"
+        "cprice":"₹600",
+        "percentage":"1.10 (0.25%)"
     },
     {
         "id":2,
         "companyname":"TATA",
         "mprice":"₹500",
         "return":"₹100",
-        "cprice":"₹600"
+        "cprice":"₹600",
+        "percentage":"1.10 (0.25%)"
     },
     {
         "id":3,
         "companyname":"TATA",
         "mprice":"₹500",
         "return":"₹100",
-        "cprice":"₹600"
+        "cprice":"₹600",
+        "percentage":"1.10 (0.25%)"
     },
     {
         "id":4,
         "companyname":"TATA",
         "mprice":"₹500",
         "return":"₹100",
-        "cprice":"₹600"
+        "cprice":"₹600",
+        "percentage":"1.10 (0.25%)"
     },
     {
         "id":5,
         "companyname":"TATA",
         "mprice":"₹500",
         "return":"₹100",
-        "cprice":"₹600"
+        "cprice":"₹600",
+        "percentage":"1.10 (0.25%)"
     }
 ]
 function Dashboard(){
@@ -110,6 +115,7 @@ function Dashboard(){
                                     selectstock === item.id && (
                                         <div>
                                             <div className='card-title'>{item.companyname}</div>
+                                            <div className='card-sub_title'>NSE <span>{item.percentage}</span> BSE <span>{item.percentage}</span></div>
                                             <hr />
                                             <div className='card-bit'>
                                                 <div><button 
