@@ -43,7 +43,7 @@ function Header({pageactive}){
                                 </button>
                                 <div className="dropdown-content">
                                     <Link to="/profile" style={{color: `${pageactive.active === "profile" ? "teal" : "#000"}`}}>Profile</Link>
-                                    <a href="#">All Orders</a>
+                                    <a href="#">Calculator</a>
                                     <a href="#">Setting</a>
                                     <a href="#" style={{textAlign:"end",color:"teal"}}><button onClick={handleLogout} className='nav-lout-btn'>Logout</button></a>
                                 </div>

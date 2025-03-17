@@ -32,7 +32,7 @@ app.post('/getuserlogindata', async(req,res) => {
             res.status(401).send("Invalid Email and Password")
             return
         }
-        //console.log(result)
+        console.log(result)
         const token = jwt.sign({ id: result._id, email: result.email }, JWT_SECRET, { expiresIn: "7h" });
         console.log(token)
         res.status(200).send(token)
@@ -375,8 +375,8 @@ app.get("/wallet/balance", async (req, res) => {
         const userWallet = await collection.findOne({email:email})
         return res.status(200).json({ balance: userWallet?.balance || 0 })
         await client.close()
-    } catch (error) {
-        console.error("Error fetching wallet balance:", error)
+    } catch (e) {
+        console.error("Error fetching wallet balance:", e)
         return res.status(500).json({ message: "Server error" })
     }
 })
@@ -395,15 +395,12 @@ app.post("/wallet/add", async (req, res) => {
             userWallet = { email:email, balance: 0, transactions: [] }
             await collection.insertOne(userWallet)
         }
-        const newBalance = userWallet.balance + amount;
-        await collection.updateOne(
-            {email:email},
-            { $set: { balance: newBalance }, $push: { transactions: { type: "Added", amount, date: new Date() } } }
-        )
+        const newBalance = userWallet.balance + amount
+        await collection.updateOne({email:email},{$set: { balance: newBalance }, $push: { transactions: { type: "Added", amount, date: new Date()}}})
         return res.status(200).json({ message: "Money added successfully!", balance: newBalance })
         await client.close()
-    } catch (error) {
-        console.error("Error adding money:", error)
+    } catch (e) {
+        console.error("Error adding money:", e)
         return res.status(500).json({ message: "Server error" })
     }
 })
@@ -430,8 +427,8 @@ app.post("/wallet/withdraw", async (req, res) => {
         )
         return res.status(200).json({ message: "Money withdrawn successfully!", balance: newBalance })
         await client.close()
-    } catch (error) {
-        console.error("Error withdrawing money:", error)
+    } catch (er) {
+        console.error("Error withdrawing money:", e)
         return res.status(500).json({ message: "Server error" })
     }
 })
