@@ -68,6 +68,7 @@ function LoginPage({open, close }){
     }
     const handlelogin = (e) => {
         e.preventDefault()
+        localStorage.setItem("email",logindata.email)
         axios.post(url+"getuserlogindata", {email:logindata.email,password:logindata.password})
         .then(res => {
           if(res.status==200){

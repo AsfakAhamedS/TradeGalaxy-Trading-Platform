@@ -33,11 +33,10 @@ app.post('/getuserlogindata', async(req,res) => {
             return
         }
         //console.log(result)
-        const token = jwt.sign({ id: result._id, email: result.email }, JWT_SECRET, { expiresIn: "1h" });
+        const token = jwt.sign({ id: result._id, email: result.email }, JWT_SECRET, { expiresIn: "7h" });
         console.log(token)
         res.status(200).send(token)
     }catch(e){
-
         console.log(e)
     }
 })
@@ -86,7 +85,7 @@ app.post('/createuserdata', async(req,res) => {
 
 app.post("/getuserdata", async (req, res) => {
     try {
-        const { token } = req.body
+        const { token,email } = req.body
         console.log(token)
         try {
             jwt.verify(token, JWT_SECRET)
@@ -94,7 +93,7 @@ app.post("/getuserdata", async (req, res) => {
             return res.status(401).send("Unauthorized access")
         }
         const { client, collection } = await getCollection("TradeGalaxy", "user")
-        const user = await collection.find().toArray()
+        const user = await collection.findOne({email:email})
         if (!user || user.length === 0) {
             return res.status(404).send("No data found")
         }
@@ -366,14 +365,14 @@ app.post("/getallcurrency", async (req, res) => {
 
 app.get("/wallet/balance", async (req, res) => {
     try {
-        const { token } = req.body
+        const { token,email } = req.body
         try {
             jwt.verify(token, JWT_SECRET)
         } catch (err) {
             return res.status(401).send("Unauthorized access")
         }
         const { client, collection } = await getCollection("TradeGalaxy", "user")
-        const userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+        const userWallet = await collection.findOne({email:email})
         return res.status(200).json({ balance: userWallet?.balance || 0 })
         await client.close()
     } catch (error) {
@@ -383,21 +382,22 @@ app.get("/wallet/balance", async (req, res) => {
 })
 app.post("/wallet/add", async (req, res) => {
     try {
-        const { token, amount } = req.body
+        const { token, amount, email } = req.body
         try {
             jwt.verify(token, JWT_SECRET)
         } catch (err) {
             return res.status(401).send("Unauthorized access")
         }
         const { client, collection } = await getCollection("TradeGalaxy", "user")
-        let userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+        console.log("Open")
+        let userWallet = await collection.findOne({email:email})
         if (!userWallet) {
-            userWallet = { uniqueclientcode:"ClientCode1741887120779", balance: 0, transactions: [] }
+            userWallet = { email:email, balance: 0, transactions: [] }
             await collection.insertOne(userWallet)
         }
         const newBalance = userWallet.balance + amount;
         await collection.updateOne(
-            {uniqueclientcode:"ClientCode1741887120779"},
+            {email:email},
             { $set: { balance: newBalance }, $push: { transactions: { type: "Added", amount, date: new Date() } } }
         )
         return res.status(200).json({ message: "Money added successfully!", balance: newBalance })
@@ -409,7 +409,7 @@ app.post("/wallet/add", async (req, res) => {
 })
 app.post("/wallet/withdraw", async (req, res) => {
     try {
-        const { token, amount } = req.body
+        const { token, amount, email } = req.body
         try {
             jwt.verify(token, JWT_SECRET)
         } catch (err) {
@@ -417,7 +417,7 @@ app.post("/wallet/withdraw", async (req, res) => {
         }
         const { client, collection } = await getCollection("TradeGalaxy", "user")
 
-        let userWallet = await collection.findOne({uniqueclientcode:"ClientCode1741887120779"})
+        let userWallet = await collection.findOne({email:email})
 
         if (!userWallet || userWallet.balance < amount) {
             client.close()

@@ -6,6 +6,7 @@ const url = "http://localhost:4500/"
 
 function WalletPage(){
     const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("Token"))
+    const [useremail,setUseremail] = useState(localStorage.getItem('email'))
     const [activeTab, setActiveTab] = useState("add")
     const [amount, setAmount] = useState("")
     const [walletBalance, setWalletBalance] = useState(0)
@@ -15,7 +16,7 @@ function WalletPage(){
         fetchWalletBalance()
     }, [])
     function fetchWalletBalance(){
-        axios.get(url+"wallet/balance",{token:isLoggedIn})
+        axios.get(url+"wallet/balance",{token:isLoggedIn, email:useremail})
             .then(res => {
                 setWalletBalance(res.data.balance)
                 console.log(walletBalance)
@@ -39,7 +40,7 @@ function WalletPage(){
         }
         const path = activeTab === "add" ? "wallet/add" : "wallet/withdraw"
 
-        axios.post(url+path, {token:isLoggedIn, amount: amt })
+        axios.post(url+path, {token:isLoggedIn, amount: amt, email:useremail})
             .then(res => {
                 alert(res.data.message)
                 setWalletBalance(res.data.balance)

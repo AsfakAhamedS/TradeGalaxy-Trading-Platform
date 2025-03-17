@@ -83,7 +83,7 @@ function LandingPage(){
                     </div>
                     <div style={{flex:"1"}}>
                         {/* <iframe style={{marginTop:"120px",borderRadius:"20px"}} width="560" height="315" src="https://www.youtube.com/embed/spPTV6_McF8?si=hPZkIU10LI4mkLF0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
-                        <img src="../../public/LandingPage/crypto_hero_image.png" alt="Image loaded" style={{marginTop:"120px",borderRadius:"20px",width:"560px",height:"315"}}/>
+                        <img src="../../public/LandingPage/indianmarket_hero_image.jpg" alt="Image loaded" style={{marginTop:"20px",marginLeft:"45px",borderRadius:"20px",width:"460px",height:"215"}}/>
                     </div>
                 </div>
                 <div className="land-heading">
