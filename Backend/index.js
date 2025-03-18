@@ -422,7 +422,7 @@ app.post("/wallet/withdraw", async (req, res) => {
         }
         const newBalance = userWallet.balance - amount
         await collection.updateOne(
-            {uniqueclientcode:"ClientCode1741887120779"},
+            {email:email},
             { $set: { balance: newBalance }, $push: { transactions: { type: "Withdrawn", amount, date: new Date() } } }
         )
         return res.status(200).json({ message: "Money withdrawn successfully!", balance: newBalance })
@@ -432,6 +432,7 @@ app.post("/wallet/withdraw", async (req, res) => {
         return res.status(500).json({ message: "Server error" })
     }
 })
+
 
 
 app.listen(port,()=>{

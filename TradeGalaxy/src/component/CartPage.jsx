@@ -20,25 +20,25 @@ const cart = [
     {
         "id":2,
         "image":"../../public/stocksicon/AdaniEnterp.webp",
-        "name":"Groww Nifty ",
+        "name":"Groww Nift ",
         "percentage":"1.10 (0.25%)"
     },
     {
         "id":3,
         "image":"../../public/stocksicon/AdaniEnterp.webp",
-        "name":"Groww Nifty Total Market Index Fund Direct Growth",
+        "name":"Groww Nifty50",
         "percentage":"1.10 (0.25%)"
     },
     {
         "id":4,
         "image":"../../public/stocksicon/AdaniEnterp.webp",
-        "name":"Groww Nifty Total Market Index Fund Direct Growth",
+        "name":"Groww Midcap",
         "percentage":"1.10 (0.25%)"
     },
     {
         "id":5,
         "image":"../../public/stocksicon/AdaniEnterp.webp",
-        "name":"Groww Nifty Total Market Index Fund Direct Growth",
+        "name":"Groww Sensex",
         "percentage":"1.10 (0.25%)"
     },
 ]
