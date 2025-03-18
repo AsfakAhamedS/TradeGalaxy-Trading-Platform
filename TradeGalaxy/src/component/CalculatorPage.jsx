@@ -1,18 +1,14 @@
 import React, { useState } from "react"
+import axios from "axios";
 import Header from "./Header"
 import Footer from "./Footer"
 
+const url = "http://localhost:4500/"
+
 function CalculatorPage() {
+    const [isLoggedIn,setIsLoggedIn] = useState(localStorage.getItem('Token'))
     const [formdata, setFormdata] = useState({ amount: "", primary: "inr", secondary: "usd" })
     const [convertedamount, setConvertedamount] = useState(null)
-
-    const exchangerate = {
-        inr: { usd: 0.012, eur: 0.011, gbp: 0.0095, cad: 0.016 },
-        usd: { inr: 83.0, eur: 0.92, gbp: 0.78, cad: 1.34 },
-        eur: { inr: 90.0, usd: 1.09, gbp: 0.85, cad: 1.46 },
-        gbp: { inr: 105.0, usd: 1.28, eur: 1.18, cad: 1.72 },
-        cad: { inr: 61.0, usd: 0.75, eur: 0.68, gbp: 0.58 },
-    }
 
     function handlechange(e) {
         const { name, value } = e.target
@@ -21,30 +17,24 @@ function CalculatorPage() {
 
     function handlesubmit(e) {
         e.preventDefault()
-        const { amount, primary, secondary } = formdata
-
-        if (!amount || isNaN(amount) || amount <= 0) {
-            alert("Please enter a valid amount!")
-            return
-        }
-
-        if (primary === secondary) {
-            setConvertedamount(amount)
-        } 
-        else {
-            const rate = exchangerate[primary]?.[secondary]
-            if (rate) {
-                setConvertedamount((amount * rate).toFixed(2))
-            } else {
-                setConvertedamount("Conversion rate unavailable")
-            }
-        }
+        axios.post(url+"currencyconvert", { token:isLoggedIn,amount:formdata.amount, primary:formdata.primary, secondary:formdata.secondary})
+          .then(res => {
+            if(res.status==200){
+                setConvertedamount(res.data.toFixed(4))
+            }})
+          .catch(e => {
+            console.log(e.response.data)
+            alert(e.response.data)
+          }) 
     }
 
     return (
         <>
-            <Header pageactive={{ active: "calculator" }} />
+            <Header 
+                pageactive={{ active: "calculator" }} 
+            />
             <hr style={{ marginTop: "20px", color: "#b8b8b8" }} />
+            <div className="cur-heading">Currency Converted</div>
             <div className="cal-container">
                 <div className="cur-converted">
                     <form onSubmit={handlesubmit}>
@@ -53,13 +43,7 @@ function CalculatorPage() {
                                 <label className="cur-label">Amount</label>
                                 <div className="cur-input-box">
                                     <span className="currency-symbol">₹</span>
-                                    <input
-                                        type="text"
-                                        placeholder="0"
-                                        name="amount"
-                                        value={formdata.amount}
-                                        onChange={handlechange}
-                                    />
+                                    <input type="text" placeholder="0" name="amount" value={formdata.amount} onChange={handlechange}/>
                                 </div>
                             </div>
                             <div className="cur-from">

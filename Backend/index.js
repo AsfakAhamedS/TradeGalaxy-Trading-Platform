@@ -432,6 +432,44 @@ app.post("/wallet/withdraw", async (req, res) => {
         return res.status(500).json({ message: "Server error" })
     }
 })
+app.post("/currencyconvert", async (req, res) => {
+    try {
+        console.log("Open Currency")
+        const { token, amount, primary, secondary } = req.body
+        try {
+            jwt.verify(token, JWT_SECRET)
+        } catch (err) {
+            return res.status(401).send("Unauthorized access")
+        }
+        if (!amount || isNaN(amount) || amount <= 0) {
+            res.status(401).send("Please enter a valid amount!")
+            return
+        }
+        if (primary === secondary) {
+            res.status(200).send(amount.toString())
+            return
+        }  
+        const { client, collection } = await getCollection("TradeGalaxy", "marketdata")
+        console.log("open client after error")
+        const data = await collection.findOne({
+            [`currencyconvert.${primary}.${secondary}`]: { $exists: true }
+        })
+        console.log("open client before error")
+        if (!data) {
+            res.status(401).send("Conversion rate not found!")
+        } else {
+            const convert = data.currencyconvert[primary][secondary]
+            const result = amount * convert
+            res.status(200).send(result.toString())
+            console.log(result)
+        }
+        await client.close()
+    } catch (e) {
+        console.error("Error:", e)
+        res.status(500).send("Server error")
+    }
+})
+
 
 
 
